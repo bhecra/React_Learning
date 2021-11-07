@@ -1,0 +1,6 @@
+{
+    "prettier.proseWrap": "never",
+    "workbench.editor.wrapTabs": true,
+    "prettier.endOfLine": "lf",
+    "prettier.printWidth": 80
+}
