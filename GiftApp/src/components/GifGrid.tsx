@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { IGiftImage } from '../interfaces/gif.interface';
 import { GridGifItem } from './GridGifItem';
-import { getGifs } from '../helpers/getGifs';
+
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 interface IGifProps {
   category: string;
 }
 
 export const GifGrid = ({ category }: IGifProps) => {
-  const [images, setImages] = useState([]);
-  useEffect(() => {
-    getGifs(category).then(setImages);
-  }, []);
+  const { data: images, loading } = useFetchGifs(category);
 
   return (
     <>
       <h3>{category}</h3>
+
+      {loading && 'Cargando...'}
       <div className='card-grid'>
         {images.map((img: any) => {
           return <GridGifItem key={img.id} {...img} />;
