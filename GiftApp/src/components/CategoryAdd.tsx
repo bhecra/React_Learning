@@ -1,13 +1,11 @@
 import React, { FormEvent, Dispatch, SetStateAction, useState } from 'react';
-import PropTypes from 'prop-types';
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
 
 interface IProps {
   setCategories: Dispatcher<string[]>;
 }
 
-export const CategoryAdd = (props: IProps) => {
-  const setCategories: Dispatcher<string[]> = props.setCategories;
+export const CategoryAdd = ({ setCategories }: IProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e: any) => {
@@ -16,7 +14,7 @@ export const CategoryAdd = (props: IProps) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      setCategories((item) => [...item, inputValue]);
+      setCategories((item) => [inputValue, ...item]);
       setInputValue('');
     }
   };
@@ -26,8 +24,4 @@ export const CategoryAdd = (props: IProps) => {
       <input type='text' value={inputValue} onChange={handleChange} />
     </form>
   );
-};
-
-CategoryAdd.propTypes = {
-  setCategories: PropTypes.oneOf<Dispatcher<string[]>>([]).isRequired,
 };
