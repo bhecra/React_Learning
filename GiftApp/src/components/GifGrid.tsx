@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { GridGifItem } from './GridGifItem';
 
 import { useFetchGifs } from '../hooks/useFetchGifs';
@@ -15,7 +14,7 @@ export const GifGrid = ({ category }: IGifProps) => {
       <h3>{category}</h3>
 
       {loading && 'Cargando...'}
-      <div className='card-grid'>
+      <div className='card-grid animate__animated animate__fadeInRight '>
         {images.map((img: any) => {
           return <GridGifItem key={img.id} {...img} />;
         })}
