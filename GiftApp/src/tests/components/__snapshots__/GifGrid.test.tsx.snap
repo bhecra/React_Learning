@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`debe mostrar correctamente el componente debe mostrar correctamente 1`] = `
+<Fragment>
+  <h3 />
+  Cargando...
+  <div
+    className="card-grid animate__animated animate__fadeInRight "
+  />
+</Fragment>
+`;

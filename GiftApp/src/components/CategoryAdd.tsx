@@ -1,4 +1,5 @@
 import React, { FormEvent, Dispatch, SetStateAction, useState } from 'react';
+import PropTypes from 'prop-types';
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
 
 interface IProps {
@@ -13,6 +14,7 @@ export const CategoryAdd = ({ setCategories }: IProps) => {
   };
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+  
     if (inputValue.trim()) {
       setCategories((item) => [inputValue, ...item]);
       setInputValue('');
@@ -25,3 +27,7 @@ export const CategoryAdd = ({ setCategories }: IProps) => {
     </form>
   );
 };
+
+CategoryAdd.prototype = {
+  setCategories: PropTypes.func.isRequired
+}
