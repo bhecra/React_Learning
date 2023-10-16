@@ -1,9 +1,15 @@
-import { BrowserRouter, Navigate, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, NavLink, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { routes } from './routes';
 
 import logo from '../logo.svg'
 import { Suspense } from "react";
 export const Navigation = () => {
+
+  // let navigate = useNavigate();
+
+  // navigate('about');
+
+    
   return (
     <>
 
@@ -33,7 +39,21 @@ export const Navigation = () => {
               </ul>
             </nav>
 
-            <Routes>
+           
+
+              {  routes.map(({ path, to, Component }) => (
+                <Component />
+                  
+                )
+                )}
+           
+
+           
+
+             
+
+           
+            {/* <Routes>
 
               {
                 routes.map(({ path, to, Component }) => (
@@ -49,9 +69,6 @@ export const Navigation = () => {
               {/* <Route path='home' element={<LazyPage1 />}></Route>
             <Route path='about' element={<LazyPage2 />}></Route>
             <Route path='users' element={<LazyPage3 />}></Route> */}
-
-              <Route path='/*' element={<Navigate to='/home' replace></Navigate>}></Route>
-            </Routes>
 
           </div>
         </BrowserRouter>
